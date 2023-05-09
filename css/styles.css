@@ -20,6 +20,9 @@
   /* Other */
   --indent: 24px;
   --items: 3;
+
+  --header-idx: 10;
+  --modal-idx: 100;
 }
 /**
   |============================
@@ -127,6 +130,7 @@ img {
   border-bottom: 1px solid var(--color-cornflower);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 1px 6px rgba(46, 47, 66, 0.08);
+  z-index: var(--header-idx);
 }
 .header-container {
   display: flex;
@@ -584,7 +588,6 @@ img {
   |============================
 */
 .backdrop {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -592,17 +595,38 @@ img {
   width: 100%;
   height: 100%;
   background: var(--color-navy-blue-modal);
+
+  z-index: var(--modal-idx);
+
+  transition: opacity 400ms ease, visibility 400ms ease;
 }
-.moda {
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 300ms;
+}
+.modal {
   position: absolute;
-  top: 88px;
-  left: calc(50% - 204px);
+  top: calc(50%);
+  left: calc(50%);
+
   width: 408px;
   height: 576px;
   background-color: var(--color-dairy);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%);
+
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+  transition-delay: 300ms;
+}
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-70%);
+  transition-delay: 0ms;
 }
 .modal-close-btn {
   position: absolute;

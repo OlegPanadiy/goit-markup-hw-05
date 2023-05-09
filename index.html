@@ -59,7 +59,7 @@
       <section class="herro">
         <div class="container">
           <h1 class="herro-title">Effective Solutions for Your Business</h1>
-          <button class="herro-button button" type="button">Order Service</button>
+          <button class="herro-button button" type="button" data-modal-open>Order Service</button>
         </div>
       </section>
       <!--Feature section-->
@@ -552,14 +552,15 @@
       </div>
     </footer>
     <!-- Modal window -->
-    <div class="backdrop">
-      <div class="moda">
-        <button class="modal-close-btn">
+    <div class="backdrop is-hidden"data-modal  >
+      <div class="modal">
+        <button class="modal-close-btn" data-modal-close>
           <svg class="modal-close-icon" width="8" height="8">
             <use href="./images/icons.svg#close-black""></use>
           </svg>
         </button>
       </div>
     </div>
+    <script src="./js/madal.js"></script>
   </body>
 </html>
