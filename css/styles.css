@@ -609,6 +609,8 @@ img {
   background: var(--color-navy-blue-modal);
 
   z-index: var(--modal-idx);
+}
+.backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
